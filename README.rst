@@ -332,17 +332,16 @@ work is distributed under the `Apache License Version 2.0`_.
 .. _GitHub: https://github.com/testing-cabal/funcsigs
 .. _PSF License Agreement: http://docs.python.org/3/license.html#terms-and-conditions-for-accessing-or-otherwise-using-python
 .. _Travis CI: http://travis-ci.org/
-.. _Read The Docs: http://funcsigs.readthedocs.org/
 .. _PEP 362: http://www.python.org/dev/peps/pep-0362/
 .. _inspect: http://docs.python.org/3/library/inspect.html#introspecting-callables-with-the-signature-object
 .. _issues system: https://github.com/testing-cabal/funcsigs/issues
 
-.. |build_status| image:: https://secure.travis-ci.org/aliles/funcsigs.png?branch=master
-   :target: http://travis-ci.org/#!/aliles/funcsigs
+.. |build_status| image:: https://secure.travis-ci.org/testing-cabal/funcsigs.png?branch=master
+   :target: http://travis-ci.org/#!/testing-cabal/funcsigs
    :alt: Current build status
 
-.. |coverage| image:: https://coveralls.io/repos/aliles/funcsigs/badge.png?branch=master
-   :target: https://coveralls.io/r/aliles/funcsigs?branch=master
+.. |coverage| image:: https://coveralls.io/repos/testing-cabal/funcsigs/badge.png?branch=master
+   :target: https://coveralls.io/r/testing-cabal/funcsigs?branch=master
    :alt: Coverage status
 
 .. |pypi_version| image:: https://pypip.in/v/funcsigs/badge.png
