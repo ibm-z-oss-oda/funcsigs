@@ -52,7 +52,7 @@ def _get_user_defined_method(cls, method_name, *nested):
             return meth
 
 
-def signature(obj):
+def signature(obj, follow_wrapped=True):
     '''Get a signature object for the passed callable.'''
 
     if not callable(obj):
@@ -93,13 +93,14 @@ def signature(obj):
         if sig is not None:
             return sig
 
-    try:
-        # Was this function wrapped by a decorator?
-        wrapped = obj.__wrapped__
-    except AttributeError:
-        pass
-    else:
-        return signature(wrapped)
+    if follow_wrapped:
+        try:
+            # Was this function wrapped by a decorator?
+            wrapped = obj.__wrapped__
+        except AttributeError:
+            pass
+        else:
+            return signature(wrapped)
 
     if isinstance(obj, types.FunctionType):
         return Signature.from_function(obj)
