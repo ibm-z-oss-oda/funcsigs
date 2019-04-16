@@ -64,15 +64,22 @@ class TestFunctionSignatures(unittest.TestCase):
         self.assertTrue(inspect.__version__)
 
     def test_follow_wrapped(self):
-        def dummy_wrapped(a, b=None, *args, **kwargs):
+        def dummy_wrapped(b):
             pass
 
         def test(a):
             pass
 
         test.__wrapped__ = dummy_wrapped
+
+        # default: follows wrapped
+        self.assertEqual(self.signature(test),
+                         ((('b', Ellipsis, Ellipsis, "positional_or_keyword"),), Ellipsis))
+
+        # we can override default behaviour using follow_wrapped=False
         self.assertEqual(self.signature(test, follow_wrapped=False),
                          ((('a', Ellipsis, Ellipsis, "positional_or_keyword"),), Ellipsis))
+
 
     def test_readme(self):
         # XXX: This fails but doesn't fail the build.
