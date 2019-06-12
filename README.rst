@@ -10,19 +10,17 @@ The Funcsigs Package
 --------------------
 
 ``funcsigs`` is a backport of the `PEP 362`_ function signature features from
-Python 3.3's `inspect`_ module. The backport is compatible with Python 2.6, 2.7
-as well as 3.3 and up. 3.2 was supported by version 0.4, but with setuptools and
-pip no longer supporting 3.2, we cannot make any statement about 3.2
-compatibility.
+Python 3.3's `inspect`_ module. The backport is compatible with Python 2.7
+as well as 3.4 and up. 3.2 was supported by version 0.4, and 3.3 was supported
+by version 0.5 but with setuptools and pip no longer supporting 3.3, we cannot
+make any statement about 3.2 and 3.3 compatibility.
 
 Compatibility
 `````````````
 
 The ``funcsigs`` backport has been tested against:
 
-* CPython 2.6
 * CPython 2.7
-* CPython 3.3
 * CPython 3.4
 * CPython 3.5
 * CPython nightlies
