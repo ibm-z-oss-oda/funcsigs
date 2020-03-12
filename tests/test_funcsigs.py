@@ -9,8 +9,8 @@ import funcsigs as inspect
 class TestFunctionSignatures(unittest.TestCase):
 
     @staticmethod
-    def signature(func):
-        sig = inspect.signature(func)
+    def signature(func, follow_wrapped=True):
+        sig = inspect.signature(func, follow_wrapped=follow_wrapped)
         return (tuple((param.name,
                        (Ellipsis if param.default is param.empty else param.default),
                        (Ellipsis if param.annotation is param.empty
@@ -62,6 +62,24 @@ class TestFunctionSignatures(unittest.TestCase):
 
     def test_has_version(self):
         self.assertTrue(inspect.__version__)
+
+    def test_follow_wrapped(self):
+        def dummy_wrapped(b):
+            pass
+
+        def test(a):
+            pass
+
+        test.__wrapped__ = dummy_wrapped
+
+        # default: follows wrapped
+        self.assertEqual(self.signature(test),
+                         ((('b', Ellipsis, Ellipsis, "positional_or_keyword"),), Ellipsis))
+
+        # we can override default behaviour using follow_wrapped=False
+        self.assertEqual(self.signature(test, follow_wrapped=False),
+                         ((('a', Ellipsis, Ellipsis, "positional_or_keyword"),), Ellipsis))
+
 
     def test_readme(self):
         # XXX: This fails but doesn't fail the build.
