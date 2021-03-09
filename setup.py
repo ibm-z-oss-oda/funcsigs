@@ -22,7 +22,7 @@ setup(
     zip_safe=False,
     author="Testing Cabal",
     author_email="testing-in-python@lists.idyll.org",
-    url="http://funcsigs.readthedocs.org",
+    url="https://github.com/testing-cabal/funcsigs",
     description="Python function signatures from PEP362 for Python 2.7 and 3.4+",
     long_description=open('README.rst').read(),
     license="ASL",
